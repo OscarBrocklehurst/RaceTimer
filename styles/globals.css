@@ -1,0 +1,244 @@
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap');
+
+:root {
+  --bg:        #0a0c0f;
+  --surface:   #111418;
+  --surface2:  #181c22;
+  --border:    #2a2f3a;
+  --accent:    #f59e0b;
+  --accent2:   #3b82f6;
+  --danger:    #ef4444;
+  --success:   #22c55e;
+  --warning:   #f97316;
+  --text:      #e8eaf0;
+  --text-muted:#7a8090;
+  --radius:    6px;
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius);
+  transition: filter 0.15s, transform 0.1s;
+}
+button:hover  { filter: brightness(1.12); }
+button:active { transform: scale(0.97); }
+button:disabled { opacity: 0.4; cursor: not-allowed; filter: none; transform: none; }
+
+input, select, textarea {
+  font-family: var(--font-body);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.85rem;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+select option { background: var(--surface2); }
+
+/* ── Layout helpers ─────────────────────────── */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+.page-wide {
+  /* No max-width — fills the full viewport so zooming out reveals more rows */
+  width: 100%;
+  padding: 0; /* leaderboard handles its own padding internally */
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Nav ────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.nav-title {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: auto;
+}
+.nav a {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+.nav a:hover, .nav a.active { color: var(--accent); text-decoration: none; }
+
+/* ── Buttons ────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+.btn-secondary {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+.btn-success {
+  background: var(--success);
+  color: #000;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+/* ── Colour chip ────────────────────────────── */
+.colour-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+/* ── Tables ─────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; }
+th {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+
+/* ── Utility ────────────────────────────────── */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.flex   { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.wrap   { flex-wrap: wrap; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.text-muted  { color: var(--text-muted); }
+.text-accent { color: var(--accent); }
+.text-danger { color: var(--danger); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-sm { font-size: 0.88rem; }
+.text-lg { font-size: 1.2rem; }
+.text-xl { font-size: 1.5rem; }
+.fw-bold { font-weight: 700; }
+.mono { font-variant-numeric: tabular-nums; }
+
+/* ── Animations ─────────────────────────────── */
+@keyframes pulse-in {
+  0%   { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+.animate-in { animation: pulse-in 0.2s ease-out; }
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.flashing { animation: flash 0.7s ease-in-out infinite; }
+
+/* ── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
